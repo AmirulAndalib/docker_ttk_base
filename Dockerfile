@@ -10,13 +10,14 @@ RUN chmod -R 777 /torapp
 RUN set -xe && \
     apt-get -qq update -y && \
     apt-get -qq install -y --no-install-recommends \
-        curl git wget \
+        curl git wget ca-certificates \
         python3 python3-pip \
         aria2 \
-        software-properties-common \
+        software-properties-common gnupg2 gpg-agent \
         ffmpeg mediainfo unzip p7zip-full p7zip-rar \
         libcrypto++-dev libssl-dev libc-ares-dev libcurl4-openssl-dev \
-        libsqlite3-dev libsodium-dev
+        libsqlite3-dev libsodium-dev && \
+    apt-get autoremove -qy
 
 RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
 RUN apt-get -qq install -y qbittorrent-nox
