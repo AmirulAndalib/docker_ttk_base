@@ -26,6 +26,3 @@ RUN curl -sL https://github.com/jaskaranSM/megasdkrest/releases/download/v0.1/me
     chmod +x /usr/local/bin/megasdkrest
 
 RUN curl -sL https://rclone.org/install.sh | bash
-
-COPY requirements.txt .
-RUN pip3 install --no-cache-dir -r requirements.txt
