@@ -16,13 +16,10 @@ RUN apt-get -qq update -y && \
         ffmpeg mediainfo unzip p7zip-full p7zip-rar \
         libcrypto++-dev libssl-dev libc-ares-dev libcurl4-openssl-dev \
         libsqlite3-dev libsodium-dev && \
+    add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable && \
+    apt-get -qq install -y qbittorrent-nox && \
+    curl -sL https://rclone.org/install.sh | bash && \
     apt-get autoremove -qy
 
-RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
-RUN apt-get -qq install -y qbittorrent-nox
-
-RUN curl -sL https://github.com/jaskaranSM/megasdkrest/releases/download/v0.1/megasdkrest -o /usr/local/bin/megasdkrest && \
+RUN curl -sL https://github.com/viswanathbalusu/megasdkrest/releases/download/v0.1.2/megasdkrest-amd64 -o /usr/local/bin/megasdkrest && \
     chmod +x /usr/local/bin/megasdkrest
-
-RUN curl -sL https://rclone.org/install.sh | bash && \
-    rclone config file >/dev/null
