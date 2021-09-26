@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 
 WORKDIR /torapp
 
@@ -21,5 +21,5 @@ RUN apt-get -qq update -y && \
     curl -sL https://rclone.org/install.sh | bash && \
     apt-get autoremove -qy
 
-RUN curl -sL https://github.com/viswanathbalusu/megasdkrest/releases/download/v0.1.2/megasdkrest-amd64 -o /usr/local/bin/megasdkrest && \
+RUN curl -sL https://github.com/viswanathbalusu/megasdkrest/releases/download/v0.1.4/megasdkrest-amd64 -o /usr/local/bin/megasdkrest && \
     chmod +x /usr/local/bin/megasdkrest
