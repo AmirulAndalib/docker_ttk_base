@@ -6,8 +6,8 @@ on:
       - 'Dockerfile'
   workflow_dispatch:
   schedule:
-    # Runs At 00:00 on Sunday
-    - cron: '0 0 * * 0'
+    # Runs At 01:00 UTC on Fridays
+    - cron: '0 1 * * 5'
 
 jobs:
 
